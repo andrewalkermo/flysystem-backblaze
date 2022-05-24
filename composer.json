@@ -13,10 +13,16 @@
             "role": "Developer"
         }
     ],
+    "require": [
+        {
+            "type": "git",
+            "url": "https://github.com/Potelo/backblaze-b2.git"
+        }
+    ],
     "require": {
         "php": "^7.2",
         "league/flysystem": "~1.0",
-        "gliterd/backblaze-b2": ">=1.5.0",
+        "gliterd/backblaze-b2": "dev-master",
         "psr/http-message-implementation": "*",
         "mikey179/vfsstream": "*"
     },
