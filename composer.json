@@ -13,7 +13,7 @@
             "role": "Developer"
         }
     ],
-    "require": [
+    "repositories": [
         {
             "type": "git",
             "url": "https://github.com/Potelo/backblaze-b2.git"
