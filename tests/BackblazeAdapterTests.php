@@ -1,18 +1,20 @@
 <?php
 
+namespace Mhetreramesh\Flysystem\Tests;
+
 use BackblazeB2\File;
 use League\Flysystem\Config;
 use Mhetreramesh\Flysystem\BackblazeAdapter as Backblaze;
 
-class BackblazeAdapterTests extends PHPUnit_Framework_TestCase
+class BackblazeAdapterTests extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var vfsStreamDirectory
+     * @var \org\bovigo\vfs\vfsStreamDirectory
      */
     private $fs_mock;
 
     /**
-     * @var vfsStreamFile
+     * @var \org\bovigo\vfs\vfsStreamFile
      */
     private $file_mock;
 
@@ -49,7 +51,7 @@ class BackblazeAdapterTests extends PHPUnit_Framework_TestCase
     {
         $mock->upload(['BucketId' => null, 'BucketName' => 'my_bucket', 'FileName' => 'something', 'Body' => 'contents'])->willReturn(new File('something', '', '', '', ''), false);
         $result = $adapter->write('something', 'contents', new Config());
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertArrayHasKey('type', $result);
         $this->assertEquals('file', $result['type']);
     }
@@ -61,7 +63,7 @@ class BackblazeAdapterTests extends PHPUnit_Framework_TestCase
     {
         $mock->upload(['BucketId' => null, 'BucketName' => 'my_bucket', 'FileName' => 'something', 'Body' => 'contents'])->willReturn(new File('something', '', '', '', ''), false);
         $result = $adapter->writeStream('something', 'contents', new Config());
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertArrayHasKey('type', $result);
         $this->assertEquals('file', $result['type']);
     }
@@ -73,7 +75,7 @@ class BackblazeAdapterTests extends PHPUnit_Framework_TestCase
     {
         $mock->upload(['BucketId' => null, 'BucketName' => 'my_bucket', 'FileName' => 'something', 'Body' => 'contents'])->willReturn(new File('something', '', '', '', ''), false);
         $result = $adapter->update('something', 'contents', new Config());
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertArrayHasKey('type', $result);
         $this->assertEquals('file', $result['type']);
     }
@@ -85,7 +87,7 @@ class BackblazeAdapterTests extends PHPUnit_Framework_TestCase
     {
         $mock->upload(['BucketId' => null, 'BucketName' => 'my_bucket', 'FileName' => 'something', 'Body' => 'contents'])->willReturn(new File('something', '', '', '', ''), false);
         $result = $adapter->updateStream('something', 'contents', new Config());
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertArrayHasKey('type', $result);
         $this->assertEquals('file', $result['type']);
     }
