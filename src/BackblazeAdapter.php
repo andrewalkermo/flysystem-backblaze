@@ -126,7 +126,7 @@ class BackblazeAdapter extends AbstractAdapter
 
         try {
             $resource = Psr7\StreamWrapper::getResource($stream);
-        } catch (InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             return false;
         }
 
@@ -269,7 +269,7 @@ class BackblazeAdapter extends AbstractAdapter
         $normalized = [
             'type'      => 'file',
             'path'      => $file->getName(),
-            'timestamp' => substr($file->getUploadTimestamp(), 0, -3),
+            'timestamp' => $file->getUploadTimestamp() ? substr($file->getUploadTimestamp(), 0, -3): null,
             'size'      => $file->getSize(),
         ];
 
